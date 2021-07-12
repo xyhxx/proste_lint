@@ -1,5 +1,8 @@
 # proste_lint
 
+<a href="https://dart-lang.github.io/linter/lints/">all rules</a>
+
+
 1. add package in dev_dependencies
 
 ```
@@ -15,14 +18,20 @@ dev_dependencies:
 include: package:proste_lint/analysis_options.yaml
 ```
 
-4. if you want off some rules
+4. if you want off some rules or add some rules
 
 ``` yaml
 include: package:proste_lint/analysis_options.yaml
+# add new wanning tips
+analyzer:
+  errors:
+    avoid_annotating_with_dynamic: warning # info, warning, error
 
 linter:
   rules: 
-    prefer_expression_function_bodies: false
+    prefer_expression_function_bodies: false # off
+    avoid_annotating_with_dynamic: true # on
+
 
 ```
 

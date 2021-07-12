@@ -1,5 +1,9 @@
 include: package:proste_lint/analysis_options.yaml
+analyzer:
+  errors:
+    avoid_annotating_with_dynamic: warning
 
 linter:
   rules: 
     prefer_expression_function_bodies: false
+    avoid_annotating_with_dynamic: true
