@@ -1,7 +1,5 @@
 # proste_lint
-
-<a href="https://dart-lang.github.io/linter/lints/">all rules</a>
-
+> You can view <a href="https://dart-lang.github.io/linter/lints/">all the rules</a>, select the rules that suit your project and adjust the rules in the file
 
 1. add package in dev_dependencies
 
