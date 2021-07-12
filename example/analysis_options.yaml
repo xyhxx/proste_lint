@@ -1,0 +1,5 @@
+include: package:proste_lint/analysis_options.yaml
+
+linter:
+  rules: 
+    prefer_expression_function_bodies: false

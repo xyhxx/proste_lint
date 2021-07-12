@@ -1,0 +1,767 @@
+
+analyzer:
+  strong-mode:
+    # false值确保类型推理引擎永远不会从dynamic到更特定的类型
+    # dynamic a = 12;
+    # int b = a; Error
+    implicit-casts: false
+    # false值确保类型推理引擎在无法确定静态类型时永远不会选择dynamic类型。
+    # implicit-dynamic: false
+
+  errors:
+    # 必须通过package：方式引入
+    # always_use_package_imports: info
+    
+    # 不允许从dynamic上调用属性或者调用方法
+    # void func(dynamic object) {
+    #   print(object.aa); Error
+    # }
+    avoid_dynamic_calls: error
+
+    # 不允许空的else
+    avoid_empty_else: error
+
+    # 避免使用print
+    avoid_print: warning
+
+    # 避免使用与现有类型相同的参数名称
+    avoid_types_as_parameter_names: error
+
+    # 不允许空代码段
+    # if (complicated.expression.foo());
+    # bar();
+    empty_statements: error
+
+    # 避免无意义的if判断
+    # if (val == 4) {
+    #   if (val > 4) {}
+    # }
+    invariant_booleans: error
+
+
+    # 不允许使用contains判断原本不存在的类型
+    # List<int> list = [];
+    # if (list.contains('1')) {}
+    iterable_contains_unrelated_type: error
+
+    # 同上
+    list_remove_unrelated_type: error
+
+    # 不允许使用字面判断明确的if语句
+    # if(1 > 0 && 1 == 1)
+    literal_only_boolean_expressions: error
+
+    # 在列表中想要拼接字符串必须用+号，防止遗漏，
+      # List<String> list = [
+      # 'a'
+      # 'b',
+      # 'c',
+      # ];
+    no_adjacent_strings_in_list: error
+
+    # 不允许switch case中出现重复的值
+    no_duplicate_case_values: error
+
+    # createState 中不允许包含任何逻辑代码
+    no_logic_in_create_state: error
+
+    # 返回值不允许有Null 使用void代替
+    # Future<Null> func(int val) async 
+    prefer_void_to_null: error
+
+    # 避免在 finally 块中抛出异常
+    throw_in_finally: warning
+
+    # 避免无意义的代码
+    # 1 + 2;
+    # func(12) + func(55);
+    unnecessary_statements: error
+
+    # 避免不同类型进行比较
+    # int a = 1;
+    # if (a == '1') {}
+    unrelated_type_equality_checks: error
+
+    # 避免跨异步请求使用buildcontext
+    #void onButtonTapped(BuildContext context) async {
+    #  await Future.delayed(const Duration(seconds: 1));
+    #  Navigator.of(context).pop();
+    #}
+    use_build_context_synchronously: warning
+
+    # 创建的Widget必须有key
+    use_key_in_widget_constructors: info
+
+    # 捕获可能的RegExp错误
+    valid_regexps: error
+
+    # 必须声明返回类型
+    always_declare_return_types: error
+
+    # 避免语句和代码块在一行
+    # if(a > 1) return; if else while
+    # always_put_control_body_on_new_line
+
+    # required 声明要在顶部
+    # m({required a, b, c}); good
+    # m({b, c, required a}); bad
+    always_put_required_named_parameters_first: info
+
+    # 必须再指定required或者赋给默认值后才能使用assert(param != null)
+    # always_require_non_null_named_parameters: info
+
+    # 必须声明变量类型
+    # const int a = 12; good
+    # const a = 12; bad
+    # always_specify_types: info
+
+    # 必须写@override 防止覆盖
+    annotate_overrides: error
+
+    # 不需要在定义参数时使用dynamic
+    # avoid_annotating_with_dynamic: info
+
+    # 不允许使用as
+    # avoid_as: info
+
+    # 不使用condition ? true : boolExpression
+    # 使用 condition || boolExpression
+    avoid_bool_literals_in_conditional_expressions: warning
+
+    # 定义catche类型
+    # avoid_catches_without_on_clauses: info
+
+    # 不要显式地定义错误信息
+    avoid_catching_errors: warning
+
+    # 不允许类只有一个静态属性
+    avoid_classes_with_only_static_members: error
+
+    # 避免检查类型时int还得double
+    # avoid_double_and_int_checks: error
+
+    # 避免在未标记 @immutable实现重载==
+    #avoid_equals_and_hash_code_on_mutable_classes
+
+    # 使用不同的引号避免转义
+    # avoid_escaping_inner_quotes: warning
+
+    # 避免在 const 类中使用字段初始值设定项。
+    avoid_field_initializers_in_const_classes: error
+
+    # 避免在foreach回调中使用函数
+    # avoid_function_literals_in_foreach_calls: 
+    
+    # 不允许实现覆盖==
+    avoid_implementing_value_types: error
+
+    # 不要将变量显性地赋值null
+    avoid_init_to_null: warning
+
+    # 不要一行定义多个变量
+    # avoid_multiple_declarations_per_line: info
+
+    # 不要在自定义的==中判断null
+    avoid_null_checks_in_equality_operators: warning
+
+    # 不要在参数中直接定义bool类型 使用命名定义
+    avoid_positional_boolean_parameters: warning
+
+    # 不要对函数进行类型定义
+    avoid_private_typedef_functions: warning
+
+    # 不要传入与默认值相同的参数
+    avoid_redundant_argument_values: error
+
+    # 不要修改重写的函数参数名
+    avoid_renaming_method_parameters: warning
+
+    # 不要定义setter的返回值
+    avoid_return_types_on_setters: error
+
+    # 不允许对定义类型的函数返回null
+    # avoid_returning_null: error
+
+    # 不要对void类型返回null
+    avoid_returning_null_for_void: warning
+
+    # 不要return this 使用..调用
+    avoid_returning_this: warning
+
+    # 不要定义没有getter的setter
+    avoid_setters_without_getters: error
+
+    # 当同名已存在于同一范围内时，不要重用类型参数
+    #class Demo<T> {
+    #  late T a;
+    #  Demo(T this.a);
+    #  void fn<T>() {} Error => void fn<U>() {}
+    #}
+    avoid_shadowing_type_parameters: error
+
+    # 可以使用.时不要使用..
+    avoid_single_cascade_in_expression_statements: error
+
+    # 避免在类似map的回调函数中定义参数类型
+    avoid_types_on_closure_parameters: warning
+
+    # 避免没意义的Container
+    avoid_unnecessary_containers: error
+
+    # 不要再consturctor中定义未使用的参数
+    avoid_unused_constructor_parameters: error
+
+    # Future返回值不能直接写void 需要Future<void>
+    avoid_void_async: error
+
+    # 必须对future执行await
+    await_only_futures: error
+
+    # extensions 必须使用UpperCamelCase进行命名
+    camel_case_extensions: error
+
+    # 对class和typedef使用UpperCamelCase进行命名
+    camel_case_types: error
+
+    # 对一个对象连续调用使用级联方式
+    cascade_invocations: error
+
+    # 不要将可空类型转换为不可空类型
+    cast_nullable_to_non_nullable: error
+
+    # 使用lowerCamelCase方式定义常量
+    # constant_identifier_names: error
+
+    # if else 代码格式控制
+    curly_braces_in_flow_control_structures: error
+
+    # 废弃标准
+    # @deprecated
+    # class A {
+    #  @deprecated
+    #   A();
+    # }
+
+    # class B {
+    #  B({@deprecated this.field});
+    #  @deprecated
+    #  Object field;
+    # }
+    # 如果一个类被弃用，它的构造函数也应该被弃用。
+    # 如果一个字段被弃用，指向它的构造函数参数也应该被弃用。
+    # 如果指向某个字段的构造函数参数已被弃用，则该字段也应被弃用。
+    deprecated_consistency: error
+
+    # 遵循引入顺序
+    directives_ordering: warning
+
+    # 不要使用内置类型的工厂函数
+    do_not_use_environment: warning
+
+    # 避免空的catch块，可以使用注释或者_命名参数
+    empty_catches: warning
+
+    # 避免空的构造函数
+    empty_constructor_bodies: error
+
+    # switch必须匹配所有的enum
+    exhaustive_cases: error
+
+    # 文件命名规范 xx_xx
+    file_names: error
+
+    # dartdoc todo格式
+    flutter_style_todos: info
+
+    # 不要导入另一个包的implementation
+    implementation_imports: warning
+
+    # 格式化return
+    join_return_with_assignment: warning
+
+    # 格式化多行文件 开头另起一行
+    leading_newlines_in_multiline_strings: warning
+
+    # 格式化library的名称
+    library_names: warning
+
+    # library 别名是小写或者_连接
+    library_prefixes: warning
+
+    # 换行结尾需要空格
+    # missing_whitespace_between_adjacent_strings: info
+
+    # 枚举类型不要在default中return 在switch外return
+    no_default_cases: warning
+
+    # 不要再runtime type 不要使用toString 会有性能问题
+    no_runtimeType_toString: error
+
+    # 变量命名规范
+    non_constant_identifier_names: error
+      
+    # 规范可空泛型 不要对泛型变量类型使用！
+    #T run<T>(T callback()) {
+    #  T? result;
+    #  (() { result = callback(); })();
+     # return result!;
+    #} bad
+    # T run<T>(T callback()) {
+    #   T? result;
+    #   (() { result = callback(); })();
+    #   return result as T;
+    # } good
+    null_check_on_nullable_type_parameter: error
+
+    # 不要将 null 作为需要关闭的参数传递。
+    null_closures: error
+
+    # 忽略可推导的类型
+    #omit_local_variable_types: error
+
+    # 抽象类够简单时使用typedef代替
+    #one_member_abstracts: info
+
+    # 不能直接throw 错误信息
+    #only_throw_errors: info
+
+    # 不要重写变量 abstract除外
+    overridden_fields: error
+
+    # 必须书写注释文件
+    # package_api_docs: info
+
+    # 包名使用package名称和路径拼接
+    #package_prefixed_library_names: info
+
+    # 不要给参数赋新的值
+    parameter_assignments: error
+
+    # 不用+拼接字符串
+    #prefer_adjacent_string_concatenation:  info
+
+    # assert断言必须在构造函数中
+    prefer_asserts_in_initializer_lists: warning
+
+    # 断言必须有文字描述
+    prefer_asserts_with_message: error
+
+    # 尽量使用文字集合
+    # var uniqueNames = Set(); => var uniqueNames = <String>{};
+    prefer_collection_literals: warning
+
+    # 更多使用 ??=
+    prefer_conditional_assignment: error
+
+    # 更多使用const 定义构造函数
+    prefer_const_constructors: error
+
+    # 在@immutable类上使用const定义构造函数
+    prefer_const_constructors_in_immutables: error
+
+    # 能使用const定义尽量使用const
+    prefer_const_declarations: error
+
+    # immutable类传入参数必须用const
+    prefer_const_literals_to_create_immutables: error
+
+    # 优先使用命名构造函数 不是静态函数
+    prefer_constructors_over_static_methods: error
+
+    # 不要使用indexOf 判断是否包含某个元素
+    prefer_contains: error
+
+    # 优先使用双引号
+    # prefer_double_quotes: error
+
+    # 使用=定义默认值
+    prefer_equal_for_default_values: error
+
+    # 考虑将 => 用于主体为单个 return 语句的短成员。
+    prefer_expression_function_bodies: info
+
+    # 如果私有变量没有再次赋值 使用final定义
+    prefer_final_fields: warning
+
+    # for-each中如果没有重新赋值 使用final定义变量
+    prefer_final_in_for_each: warning
+
+    # 如果变量没被修改 使用final定义
+    prefer_final_locals: warning
+
+    # 如果参数没被修改 使用final定义 还未发布的dart版本
+    # prefer_final_parameters: warning
+
+    # 用for进行遍历操作而不是fromIterable
+    prefer_for_elements_to_map_fromIterable: warning
+
+    # 如果您只想将函数或方法应用于可迭代对象的所有元素，请使用 forEach
+    prefer_foreach: error
+
+    # 必须声明函数名称
+    # prefer_function_declarations_over_variables: info
+
+    # 首选泛型函数类型别名。
+    # typedef void F(); => typedef F = void Function();
+    prefer_generic_function_type_aliases: error
+
+    # 在构建集合时，最好使用 if 元素而不是条件。
+    # isAndroid ? IconButton(icon: Icon(Icons.search)) : null; => if (isAndroid) IconButton(icon: Icon(Icons.search))
+    prefer_if_elements_to_conditional_expressions: error
+
+    # 更多使用 ??
+    # v = a == null ? b : a; =? v = a ?? b;
+    prefer_if_null_operators: error
+
+    # 使用构造函数参数进行初始化
+    #class Point {
+    #  num x, y;
+    #  Point(this.x, this.y);
+    #}
+    #class Point {
+    #  bool isEnabled;
+    #  Point({bool enabled}) {
+    #    this.isEnabled = enable; // OK
+    #  }
+    #}
+    prefer_initializing_formals: error
+
+    # 不要用add初始化变量
+    prefer_inlined_adds: error
+
+    # 务必使用 int 文字而不是相应的双精度文字。
+    prefer_int_literals: error
+
+    # 更喜欢使用插值来组合字符串和值。
+    prefer_interpolation_to_compose_strings: error
+
+    # 不适用.length判断是否为空 使用isEmpty isNotEmpty
+    prefer_is_empty: error
+
+    # 不使用!xx.isEmpty判断不为空 使用xx.isNotEmpty
+    prefer_is_not_empty: error
+
+    # 不用!(foo is Foo)判断不是类型 使用foo is! Foo
+    prefer_is_not_operator: error
+
+    # 优先于 iterable.whereType() 而不是 iterable.where((e) => e is T)。
+    prefer_iterable_whereType: warning
+
+    # Dart 2.1 为 mixin 引入了一种新语法，它为 mixin 提供了一种使用 super 调用继承成员的安全方法。
+    #新样式的 mixin 应始终用于要混合的类型。因此，此 lint 将在 with 子句中标记类的任何使用。
+    prefer_mixin: error
+
+    # if (f != null) f!();=>f?.call(); dart版本未上线
+    # prefer_null_aware_method_calls: error
+
+    # v = a == null ? null : a.b; => v = a?.b; dart版本未上线
+    # prefer_null_aware_operators: error
+
+    # 优先使用单引号
+    prefer_single_quotes: warning
+
+    # 优先使用扩展符
+    # var ints = [1, 2, 3]; print(['a']..addAll(ints.map((i) => i.toString()))..addAll(['c']));
+    # ↓
+    # var ints = [1, 2, 3]; print(['a', ...ints.map((i) => i.toString()), 'c');
+    prefer_spread_collections: error
+
+    # 未初始化的变量必须定义类型
+    prefer_typing_uninitialized_variables: error
+
+    # 必须说明弃用原因
+    provide_deprecation_message: error
+
+    # 所有公共库必须写文档
+    # public_member_api_docs: info
+
+    # 禁止递归getter
+    recursive_getters: error
+
+    # 务必在所有函数调用和声明中使用尾随逗号，除非函数调用或定义（从函数名称的开头到右括号）占一行。
+    # 实验性 未正式上线
+    # require_trailing_commas: info
+
+    # 使用sizedbox占据空白位置
+    sized_box_for_whitespace: error
+
+    # 优先使用 /// 进行文档注释
+    # slash_for_doc_comments: info
+
+    # 在小部件实例创建中最后对子属性进行排序。这提高了可读性，
+    # 并在 IDE 中以 UI 作为代码可视化效果最好，在编辑器（例如 IntelliJ）中使用 UI 作为代码指南，
+    # 其中以正确顺序显示的属性与构造函数调用明确关联并与子项分开。
+    # dart版本未上线
+    # sort_child_properties_last: info
+
+    # 请在其他成员之前对构造函数声明进行排序。
+    sort_constructors_first: error
+
+    # 请先对未命名的构造函数声明进行排序，然后再对命名的声明进行排序。
+    # sort_unnamed_constructors_first: info
+
+    # 断言不为空时添加类型
+    # tighten_type_of_initializing_formals: info
+
+    # 必须为函数添加返回值类型 参数添加类型
+    type_annotate_public_apis: error
+
+    # 不要定义构造函数中初始化类型 使用this默认初始化时
+    type_init_formals: error
+
+    # 必须使用 package:pedantic 等待或标记异步函数体中的未来结果。
+    # unawaited_futures: error
+
+    # 当表达式类型可分配给函数的返回类型时，避免返回等待的表达式。
+    # Future<int> f1() async => await future; => Future<int> f1() => future;
+    unnecessary_await_in_return: error
+
+    # 插值表达式中 单个变量时 尽可能避免大括号
+    # unnecessary_brace_in_string_interps: warning
+
+    # 避免在上下文中重复使用const
+    #class A { const A(); }
+    #m(){
+    #  const a = A();
+    #  final b = const [A()];
+    #}
+    unnecessary_const: warning
+
+    # 不使用final
+    # unnecessary_final: info
+
+    # 不使用getter和setter
+    # unnecessary_getters_setters: info
+
+    # names.forEach((name) {print(name);}); => names.forEach(print);
+    unnecessary_lambdas: warning
+
+    # 不使用new 关键字
+    unnecessary_new: warning
+    
+    # 不允许分配空值
+    # var x; x ??= null; bad
+    # var x; x ??= 1; good
+    unnecessary_null_aware_assignments: error
+
+
+    # 当接受可空值时不要应用空检查。
+    unnecessary_null_checks: warning
+
+    # 避免在 if null 运算符中使用 null 作为操作数。
+    # var x = a ?? null;
+    unnecessary_null_in_if_null_operators: error
+
+    # 对用不可为空值初始化的最终变量使用不可为空类型。
+    # final int? i = 1; bad
+    # final int i = 1; good
+    unnecessary_nullable_for_final_variable_declarations: error
+
+    # 不要覆盖一个方法来执行具有相同参数的super方法调用。
+    # class A extends B {
+    #   @override
+    #   void foo() {
+    #     super.foo();
+    #   }
+    # } bad
+    # class A extends B {
+    #   @override
+    #   void foo() {
+    #     doSomethingElse();
+    #   }
+    # } good
+    unnecessary_overrides: warning
+
+    # 不要滥用括号
+    unnecessary_parenthesis: error
+
+    # 仅在需要时使用原始字符串。 例如regexp中
+    unnecessary_raw_strings: error
+
+    # 不要滥用转义符
+    unnecessary_string_escapes: error
+
+    # 如果其中只有一个字符串表达式，则不要使用字符串插值。
+    # String message; String o = '$message'; bad
+    unnecessary_string_interpolations: error
+
+    # 没必要使用this时不使用
+    unnecessary_this: warning
+    
+    # 首选 8 位十六进制整数 (0xFFFFFFFF) 来实例化 Color。颜色有四个 8 位通道，加起来为 32 位，因此颜色使用 32 位整数来描述。
+    use_full_hex_values_for_flutter_colors: warning
+
+    # 对参数使用泛型函数类型语法。
+    # Iterable<T> where(bool predicate(T element)) {} bad
+    # Iterable<T> where(bool Function(T) predicate) {} good
+    use_function_type_syntax_for_parameters: error
+
+    # if (nullableBool == true) {} => if (nullableBool ?? false) {}
+    use_if_null_to_convert_nulls_to_bools: warning
+
+    # 使用isEven和isOdd判断是否时奇偶数
+    use_is_even_rather_than_modulo: warning
+
+    # 对于后面要赋值的变量使用late 而不是?
+    use_late_for_private_fields_and_variables: error
+
+    # 更多使用已定义的常量
+    # const Duration(seconds: 0); bad
+    # Duration.zero; good
+    use_named_constants: warning
+
+    # 可以使用原始字符串来避免仅转义反斜杠和美元。
+    use_raw_strings: warning
+
+    # 使用rethrow在catche中抛出异常
+    use_rethrow_when_possible: error
+
+    # 必须用=赋值setter
+    use_setters_to_change_properties: error
+
+    # 频繁操作字符串时使用StringBuffer提升性能
+    use_string_buffers: warning
+
+
+    # 测试相关
+    # 使用 throwsA 匹配器而不是带有 fail() 的 try-catch。
+    # use_test_throws_matchers: info
+
+    # 命名规范 没意义
+    # use_to_and_as_if_applicable: info
+
+    # 不要给void赋值
+    void_checks: error
+
+    # 忽略未列入的报错信息
+    todo: ignore
+
+linter:
+  rules:
+    - avoid_dynamic_calls
+    - avoid_empty_else
+    - avoid_print
+    - avoid_types_as_parameter_names
+    - empty_statements
+    - invariant_booleans
+    - iterable_contains_unrelated_type
+    - list_remove_unrelated_type
+    - literal_only_boolean_expressions
+    - no_adjacent_strings_in_list
+    - no_duplicate_case_values
+    - no_logic_in_create_state
+    - prefer_void_to_null
+    - throw_in_finally
+    - unnecessary_statements
+    - unrelated_type_equality_checks
+    - use_build_context_synchronously
+    - use_key_in_widget_constructors
+    - valid_regexps
+    - always_declare_return_types
+    - always_put_required_named_parameters_first
+    - annotate_overrides
+    - avoid_bool_literals_in_conditional_expressions
+    - avoid_catching_errors
+    - avoid_classes_with_only_static_members
+    - avoid_field_initializers_in_const_classes
+    - avoid_implementing_value_types
+    - avoid_null_checks_in_equality_operators
+    - avoid_positional_boolean_parameters
+    - avoid_private_typedef_functions
+    - avoid_redundant_argument_values
+    - avoid_renaming_method_parameters
+    - avoid_returning_null_for_void
+    - avoid_returning_this
+    - avoid_setters_without_getters
+    - avoid_shadowing_type_parameters
+    - avoid_single_cascade_in_expression_statements
+    - avoid_unnecessary_containers
+    - avoid_unused_constructor_parameters
+    - avoid_void_async
+    - await_only_futures
+    - camel_case_extensions
+    - camel_case_types
+    - cascade_invocations
+    - cast_nullable_to_non_nullable
+    - curly_braces_in_flow_control_structures
+    - deprecated_consistency
+    - directives_ordering
+    - do_not_use_environment
+    - empty_catches
+    - empty_constructor_bodies
+    - exhaustive_cases
+    - file_names
+    - flutter_style_todos
+    - join_return_with_assignment
+    - library_names
+    - library_prefixes
+    - no_default_cases
+    - no_runtimeType_toString
+    - non_constant_identifier_names
+    - null_check_on_nullable_type_parameter
+    - null_closures
+    - overridden_fields
+    - parameter_assignments
+    - prefer_asserts_in_initializer_lists
+    - prefer_asserts_with_message
+    - prefer_collection_literals
+    - prefer_conditional_assignment
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - prefer_constructors_over_static_methods
+    - prefer_contains
+    - prefer_equal_for_default_values
+    - prefer_expression_function_bodies
+    - prefer_final_fields
+    - prefer_final_in_for_each
+    - prefer_final_locals
+    - prefer_for_elements_to_map_fromIterable
+    - prefer_foreach
+    - prefer_generic_function_type_aliases
+    - prefer_if_elements_to_conditional_expressions
+    - prefer_if_null_operators
+    - prefer_initializing_formals
+    - prefer_inlined_adds
+    - prefer_int_literals
+    - prefer_interpolation_to_compose_strings
+    - prefer_is_empty
+    - prefer_is_not_empty
+    - prefer_is_not_operator
+    - prefer_iterable_whereType
+    - prefer_mixin
+    - prefer_single_quotes
+    - prefer_spread_collections
+    - prefer_typing_uninitialized_variables
+    - provide_deprecation_message
+    - recursive_getters
+    - sized_box_for_whitespace
+    - sort_constructors_first
+    - type_annotate_public_apis
+    - type_init_formals
+    - unnecessary_await_in_return
+    - unnecessary_const
+    - unnecessary_lambdas
+    - unnecessary_new
+    - unnecessary_null_aware_assignments
+    - unnecessary_null_checks
+    - unnecessary_null_in_if_null_operators
+    - unnecessary_nullable_for_final_variable_declarations
+    - unnecessary_overrides
+    - unnecessary_parenthesis
+    - unnecessary_raw_strings
+    - unnecessary_string_escapes
+    - unnecessary_string_interpolations
+    - unnecessary_this
+    - use_full_hex_values_for_flutter_colors
+    - use_function_type_syntax_for_parameters
+    - use_if_null_to_convert_nulls_to_bools
+    - use_is_even_rather_than_modulo
+    - use_late_for_private_fields_and_variables
+    - use_raw_strings
+    - use_named_constants
+    - use_rethrow_when_possible
+    - use_setters_to_change_properties
+    - use_string_buffers
+    - void_checks

@@ -1,3 +1,34 @@
+# proste_lint
+
+1. add package in dev_dependencies
+
+```
+dev_dependencies:
+  proste_lint: last
+```
+
+2. create a analysis_options.yaml in root path
+
+3. include proste_list
+
+``` yaml
+include: package:proste_lint/analysis_options.yaml
+```
+
+4. if you want off some rules
+
+``` yaml
+include: package:proste_lint/analysis_options.yaml
+
+linter:
+  rules: 
+    prefer_expression_function_bodies: false
+
+```
+
+
+```
+
 MIT License
 
 Copyright (c) 2021 xyhxx
@@ -19,3 +50,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+```
