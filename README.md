@@ -8,7 +8,7 @@ dev_dependencies:
   proste_lint: last
 ```
 
-2. create a analysis_options.yaml in root path
+2. create a `analysis_options.yaml` in root directory
 
 3. include proste_list
 

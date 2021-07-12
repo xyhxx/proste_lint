@@ -1,3 +1,7 @@
+## 1.0.5
+
+* add number
+
 ## 1.0.4
 
 * supplement readme
