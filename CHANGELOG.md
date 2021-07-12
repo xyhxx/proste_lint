@@ -1,3 +1,7 @@
+## 1.0.2
+
+* Remove useless
+
 ## 1.0.1
 
 * readme
