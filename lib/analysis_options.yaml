@@ -135,7 +135,7 @@ analyzer:
     avoid_catching_errors: warning
 
     # 不允许类只有一个静态属性
-    avoid_classes_with_only_static_members: error
+    # avoid_classes_with_only_static_members: error
 
     # 避免检查类型时int还得double
     # avoid_double_and_int_checks: error
@@ -378,7 +378,7 @@ analyzer:
     prefer_equal_for_default_values: error
 
     # 考虑将 => 用于主体为单个 return 语句的短成员。
-    prefer_expression_function_bodies: info
+    # prefer_expression_function_bodies: info
 
     # 如果私有变量没有再次赋值 使用final定义
     prefer_final_fields: warning
@@ -662,7 +662,6 @@ linter:
     - annotate_overrides
     - avoid_bool_literals_in_conditional_expressions
     - avoid_catching_errors
-    - avoid_classes_with_only_static_members
     - avoid_field_initializers_in_const_classes
     - avoid_implementing_value_types
     - avoid_null_checks_in_equality_operators
@@ -713,7 +712,6 @@ linter:
     - prefer_constructors_over_static_methods
     - prefer_contains
     - prefer_equal_for_default_values
-    - prefer_expression_function_bodies
     - prefer_final_fields
     - prefer_final_in_for_each
     - prefer_final_locals
@@ -738,7 +736,6 @@ linter:
     - recursive_getters
     - sized_box_for_whitespace
     - sort_constructors_first
-    - type_annotate_public_apis
     - type_init_formals
     - unnecessary_await_in_return
     - unnecessary_const
@@ -765,3 +762,4 @@ linter:
     - use_setters_to_change_properties
     - use_string_buffers
     - void_checks
+    - type_annotate_public_apis

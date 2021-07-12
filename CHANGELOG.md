@@ -1,3 +1,9 @@
+## 1.1.0
+
+* off avoid_classes_with_only_static_members 
+* off prefer_expression_function_bodies
+
+
 ## 1.0.5
 
 * add number
