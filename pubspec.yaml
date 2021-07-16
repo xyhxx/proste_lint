@@ -1,6 +1,6 @@
 name: proste_lint
 description: Provide default lint, plug and play, convenient for team coordination.
-version: 1.1.0
+version: 1.1.1
 homepage: https://github.com/xyhxx/proste_lint
 
 environment:

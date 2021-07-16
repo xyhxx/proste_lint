@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/xyhxx/program_preview/master/logo/lint.png" />
+
 # proste_lint
 > You can view <a href="https://dart-lang.github.io/linter/lints/">all the rules</a>, select the rules that suit your project and adjust the rules in the file
 
@@ -5,7 +7,7 @@
 
 ```
 dev_dependencies:
-  proste_lint: last
+  proste_lint: last_version
 ```
 
 2. create a `analysis_options.yaml` in root directory
