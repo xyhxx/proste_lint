@@ -530,8 +530,8 @@ analyzer:
     # 不使用final
     # unnecessary_final: info
 
-    # 不使用getter和setter
-    # unnecessary_getters_setters: info
+    # 不使用无意义的getter和setter 比如getter和setter只是为了赋值和取值
+    unnecessary_getters_setters: warning
 
     # names.forEach((name) {print(name);}); => names.forEach(print);
     unnecessary_lambdas: warning
@@ -763,3 +763,4 @@ linter:
     - use_string_buffers
     - void_checks
     - type_annotate_public_apis
+    - unnecessary_getters_setters

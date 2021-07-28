@@ -1,3 +1,7 @@
+## 1.2.0
+
+* add unnecessary_getters_setters with warning
+
 ## 1.1.1
 
 * add logo
