@@ -1,3 +1,7 @@
+## 1.3.0
+
+* close prefer_constructors_over_static_methods
+
 ## 1.2.0
 
 * add unnecessary_getters_setters with warning
