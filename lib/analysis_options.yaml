@@ -227,7 +227,7 @@ analyzer:
     cascade_invocations: error
 
     # 不要将可空类型转换为不可空类型
-    cast_nullable_to_non_nullable: error
+    # cast_nullable_to_non_nullable: error
 
     # 使用lowerCamelCase方式定义常量
     # constant_identifier_names: error
@@ -681,7 +681,7 @@ linter:
     - camel_case_extensions
     - camel_case_types
     - cascade_invocations
-    - cast_nullable_to_non_nullable
+    # - cast_nullable_to_non_nullable
     - curly_braces_in_flow_control_structures
     - deprecated_consistency
     - directives_ordering
