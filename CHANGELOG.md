@@ -1,5 +1,9 @@
 ## 1.4.0
 
+* close some lint
+
+## 1.4.0
+
 * close cast_nullable_to_non_nullable
 
 ## 1.3.0
